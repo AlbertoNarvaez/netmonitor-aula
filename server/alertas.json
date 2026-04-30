@@ -1,0 +1,31 @@
+{
+  "_comentario": "Dominios vigilados. Cualquier consulta DNS a estos dominios genera una alerta inmediata.",
+  "dominios_vigilados": [
+    "chatgpt.com",
+    "chat.openai.com",
+    "openai.com",
+    "claude.ai",
+    "anthropic.com",
+    "copilot.microsoft.com",
+    "copilot.cloud.microsoft",
+    "gemini.google.com",
+    "bard.google.com",
+    "aistudio.google.com",
+    "perplexity.ai",
+    "you.com",
+    "character.ai",
+    "poe.com",
+    "huggingface.co",
+    "replicate.com",
+    "grok.x.ai",
+    "mistral.ai",
+    "deepseek.com"
+  ],
+  "alertas_extra": [
+    "chegg.com",
+    "coursehero.com",
+    "wolframalpha.com",
+    "quizlet.com",
+    "brainly.com"
+  ]
+}

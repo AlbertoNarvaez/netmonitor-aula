@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>⚠ Alerta #21 — PC-AULA-10</title>
+<style>
+  :root{--bg:#060a0f;--surf:#0d1520;--border:#1a2d45;--accent:#00d4ff;
+    --green:#00ff9d;--warn:#ffb300;--danger:#ff3d5a;--text:#cde4f5;--muted:#4a6a8a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;padding:32px;}
+  body::before{content:'';position:fixed;inset:0;
+    background-image:linear-gradient(rgba(255,61,90,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,61,90,0.03) 1px,transparent 1px);
+    background-size:40px 40px;pointer-events:none;z-index:0;}
+  .wrap{position:relative;z-index:1;max-width:1300px;margin:0 auto;}
+
+  .alert-banner{background:rgba(255,61,90,0.1);border:1px solid rgba(255,61,90,0.4);
+    border-radius:12px;padding:24px 28px;margin-bottom:28px;}
+  .alert-title{font-family:Arial,sans-serif;font-size:24px;font-weight:800;
+    color:var(--danger);margin-bottom:12px;}
+  .alert-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;}
+  .meta-item{background:rgba(0,0,0,0.3);border-radius:8px;padding:10px 14px;}
+  .meta-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .meta-val{font-size:15px;color:#fff;font-weight:bold;}
+  .meta-val.danger{color:var(--danger);}
+
+  .card{background:var(--surf);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;}
+  .card-hdr{padding:12px 18px;border-bottom:1px solid var(--border);font-family:Arial,sans-serif;
+    font-weight:700;font-size:14px;color:#fff;}
+  .table-wrap{max-height:500px;overflow-y:auto;}
+  table{width:100%;border-collapse:collapse;font-size:11px;}
+  thead th{padding:8px 10px;text-align:left;color:var(--muted);font-size:10px;
+    text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);
+    background:var(--surf);position:sticky;top:0;}
+  tbody tr{border-bottom:1px solid rgba(26,45,69,0.4);}
+  tbody tr:hover{background:rgba(0,212,255,0.03);}
+  .alerta-row{background:rgba(255,61,90,0.08)!important;}
+  .alerta-row:hover{background:rgba(255,61,90,0.14)!important;}
+  td{padding:6px 10px;vertical-align:middle;}
+  .tag{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:bold;}
+  .tdns{background:rgba(0,212,255,0.15);color:var(--accent);}
+  .tdnsr{background:rgba(0,212,255,0.07);color:#5aa8cc;}
+  .thttps{background:rgba(0,255,157,0.12);color:var(--green);}
+  .thttp{background:rgba(255,179,0,0.12);color:var(--warn);}
+  .ttcp{background:rgba(100,100,150,0.15);color:#8899bb;}
+  .dom-hi{color:var(--danger);font-weight:bold;}
+  .mono{font-family:'Courier New',monospace;}
+  .muted{color:var(--muted);font-size:10px;}
+  .proto{color:var(--green);font-size:10px;}
+  .flags{color:var(--warn);font-size:10px;}
+  footer{margin-top:24px;text-align:center;font-size:11px;color:var(--muted);padding-top:16px;
+    border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="alert-banner">
+    <div class="alert-title">⚠ ALERTA #21 — ACCESO A IA DETECTADO</div>
+    <div style="color:var(--muted);font-size:12px;">Generado automáticamente por NetMonitor Aula · 30/04/2026 17:52:36</div>
+    <div class="alert-meta">
+      <div class="meta-item"><div class="meta-lbl">Equipo</div><div class="meta-val">PC-AULA-10</div></div>
+      <div class="meta-item"><div class="meta-lbl">IP</div><div class="meta-val">127.0.0.1</div></div>
+      <div class="meta-item"><div class="meta-lbl">Dominio consultado</div><div class="meta-val danger">perplexity.ai</div></div>
+      <div class="meta-item"><div class="meta-lbl">Servicio detectado</div><div class="meta-val danger">perplexity.ai</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">📦 Historial de paquetes del equipo (filas rojas = dominio vigilado)</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>Hora</th><th>Tipo</th><th>Dominio</th>
+          <th>IP Src</th><th>IP Dst</th><th>Proto</th><th>Flags</th><th>Bytes</th>
+        </tr></thead>
+        <tbody><tr>
+          <td class="mono">17:51:43.993</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ocsp.digicert.com">ocsp.digicert.com</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">2197</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:43.908</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ocsp.digicert.com">ocsp.digicert.com</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="mono muted">185.199.108.133</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.545</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="pypi.org">pypi.org</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">165</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.396</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="pypi.org">pypi.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">70</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.972</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="pypi.org">pypi.org</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="mono muted">23.211.15.236</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.895</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="spotify.com">spotify.com</td>
+          <td class="mono muted">192.168.1.22</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">107</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.430</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="spotify.com">spotify.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.22</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">162</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.836</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="spotify.com">spotify.com</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.951</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.28</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">178</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.945</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">168</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.202</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:47.101</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.919</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">84</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.927</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">114</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.405</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">104.21.45.100</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.990</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="raw.githubusercontent.com">raw.githubusercontent.com</td>
+          <td class="mono muted">192.168.1.12</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">91</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.152</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="raw.githubusercontent.com">raw.githubusercontent.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">145</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.610</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="raw.githubusercontent.com">raw.githubusercontent.com</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">93.184.216.34</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.228</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="raw.githubusercontent.com">raw.githubusercontent.com</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">52.96.189.162</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">2197</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.465</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="teams.microsoft.com">teams.microsoft.com</td>
+          <td class="mono muted">192.168.1.19</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">143</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.736</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="teams.microsoft.com">teams.microsoft.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.21</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">99</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.571</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="teams.microsoft.com">teams.microsoft.com</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">104.83.34.182</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.444</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">94</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.969</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">151</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:50.698</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">2197</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.725</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="teams.microsoft.com">teams.microsoft.com</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">131</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.369</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="teams.microsoft.com">teams.microsoft.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">118</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.493</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="teams.microsoft.com">teams.microsoft.com</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">23.211.15.236</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.214</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">84</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.202</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">113</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.270</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.12</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.578</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="googlevideo.com">googlevideo.com</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">136</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.155</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="googlevideo.com">googlevideo.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">87</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.752</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="googlevideo.com">googlevideo.com</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">151.101.1.140</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">2197</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.930</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">104</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.957</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">127</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.701</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">256</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.140</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="microsoft.com">microsoft.com</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">151</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.934</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="microsoft.com">microsoft.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">80</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:53.548</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="microsoft.com">microsoft.com</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">13.107.42.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.987</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="google.com">google.com</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">171</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.719</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="google.com">google.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.19</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">135</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.333</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="google.com">google.com</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="mono muted">185.199.108.133</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.872</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="google.com">google.com</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">23.211.15.236</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">2197</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.152</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="elmundo.es">elmundo.es</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">132</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.889</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="elmundo.es">elmundo.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.19</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">84</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.450</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="elmundo.es">elmundo.es</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.750</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">179</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.343</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">162</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:56.317</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="mono muted">104.83.34.182</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.374</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.15</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">79</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.642</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">113</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.439</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="mono muted">93.184.216.34</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.368</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">104.21.45.100</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.489</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">144</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.394</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">74</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.840</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="mono muted">93.184.216.34</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.248</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="youtube.com">youtube.com</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">136</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.432</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="youtube.com">youtube.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">104</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.277</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="youtube.com">youtube.com</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="mono muted">13.107.42.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.379</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">170</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.774</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">118</td>
+        </tr>
+<tr>
+          <td class="mono">17:51:58.659</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">93.184.216.34</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.643</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">144</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.297</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.22</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">156</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.500</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">52.96.189.162</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.391</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="microsoft.com">microsoft.com</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">164</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.521</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="microsoft.com">microsoft.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">123</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.838</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="microsoft.com">microsoft.com</td>
+          <td class="mono muted">192.168.1.15</td>
+          <td class="mono muted">151.101.1.140</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.693</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="microsoft.com">microsoft.com</td>
+          <td class="mono muted">192.168.1.22</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.531</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">96</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.358</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">136</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:01.354</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">142.250.185.46</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:04.663</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="docs.python.org">docs.python.org</td>
+          <td class="mono muted">192.168.1.21</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">116</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:04.748</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="docs.python.org">docs.python.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.22</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">99</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:04.760</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="docs.python.org">docs.python.org</td>
+          <td class="mono muted">192.168.1.12</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:04.124</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">164</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:04.899</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">156</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:04.537</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.281</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="twitch.tv">twitch.tv</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">127</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.123</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="twitch.tv">twitch.tv</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.12</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">75</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.100</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="twitch.tv">twitch.tv</td>
+          <td class="mono muted">192.168.1.28</td>
+          <td class="mono muted">23.211.15.236</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">256</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.659</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">144</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.119</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">141</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.219</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="mono muted">104.21.45.100</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.604</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">122</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.227</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">99</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:07.186</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:10.645</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="stackoverflow.com">stackoverflow.com</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">149</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:10.717</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="stackoverflow.com">stackoverflow.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">95</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:10.680</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="stackoverflow.com">stackoverflow.com</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="mono muted">13.107.42.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:10.598</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="stackoverflow.com">stackoverflow.com</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="mono muted">185.199.108.133</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:10.770</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.21</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">170</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:10.862</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">96</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:10.566</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:10.395</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="nebrija.es">nebrija.es</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="mono muted">93.184.216.34</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">256</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.323</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="update.microsoft.com">update.microsoft.com</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">72</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.601</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="update.microsoft.com">update.microsoft.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">103</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.604</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="update.microsoft.com">update.microsoft.com</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="mono muted">142.250.185.46</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.674</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.28</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">75</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.875</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.19</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">78</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.164</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">52.96.189.162</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.716</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.gstatic.com">www.gstatic.com</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="mono muted">23.211.15.236</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.858</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">149</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.635</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">76</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.216</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">151.101.1.140</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.565</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.nebrija.es">www.nebrija.es</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.284</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="stackoverflow.com">stackoverflow.com</td>
+          <td class="mono muted">192.168.1.15</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">108</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.972</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="stackoverflow.com">stackoverflow.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">133</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.365</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="stackoverflow.com">stackoverflow.com</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.872</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="stackoverflow.com">stackoverflow.com</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="mono muted">93.184.216.34</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.894</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">111</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.746</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">96</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.250</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.19</td>
+          <td class="mono muted">23.211.15.236</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.763</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="mono muted">52.96.189.162</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">2197</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.955</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">167</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.523</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">156</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.515</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:13.347</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="moodle.nebrija.es">moodle.nebrija.es</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="mono muted">23.211.15.236</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.262</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="spotify.com">spotify.com</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">93</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.909</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="spotify.com">spotify.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">130</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.374</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="spotify.com">spotify.com</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">13.107.42.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.423</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.15</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">87</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.392</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.12</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">169</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.289</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.986</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="api.github.com">api.github.com</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">123</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.146</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="api.github.com">api.github.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">168</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.349</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="api.github.com">api.github.com</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="mono muted">13.107.42.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.815</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">132</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.878</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.21</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">180</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.525</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="mono muted">185.199.108.133</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.988</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="pypi.org">pypi.org</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">150</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.728</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="pypi.org">pypi.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.28</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">94</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:15.119</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="pypi.org">pypi.org</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">104.21.45.100</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:19.230</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="marca.com">marca.com</td>
+          <td class="mono muted">192.168.1.19</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">139</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:19.345</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="marca.com">marca.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">81</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:19.230</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="marca.com">marca.com</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">13.107.42.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:19.971</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="marca.com">marca.com</td>
+          <td class="mono muted">192.168.1.22</td>
+          <td class="mono muted">185.199.108.133</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:19.928</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">179</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:19.223</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.11</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">145</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:19.942</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:19.637</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.12</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">256</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:21.938</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="youtube.com">youtube.com</td>
+          <td class="mono muted">192.168.1.28</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">98</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:21.975</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="youtube.com">youtube.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">152</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:21.340</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="youtube.com">youtube.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">256</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:21.269</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.28</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">84</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:21.807</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">129</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:21.607</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:25.277</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="twitch.tv">twitch.tv</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">178</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:25.439</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="twitch.tv">twitch.tv</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.21</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">125</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:25.498</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="twitch.tv">twitch.tv</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">140.82.112.4</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:25.513</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.18</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">100</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:25.408</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">114</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:25.372</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">256</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:27.721</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="clients1.google.com">clients1.google.com</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">70</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:27.747</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="clients1.google.com">clients1.google.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">177</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:27.546</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="clients1.google.com">clients1.google.com</td>
+          <td class="mono muted">192.168.1.15</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:27.158</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="clients1.google.com">clients1.google.com</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">104.83.34.182</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:27.989</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:27.485</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.19</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">82</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:27.195</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="mono muted">185.199.108.133</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.301</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">146</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.543</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">73</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.600</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="mono muted">142.250.185.46</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.855</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="office.com">office.com</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">104.21.45.100</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.651</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.youtube.com">www.youtube.com</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">77</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.763</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.youtube.com">www.youtube.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">121</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.932</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="www.youtube.com">www.youtube.com</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="mono muted">13.107.42.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.444</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">174</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.196</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">160</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.612</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="fonts.googleapis.com">fonts.googleapis.com</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="mono muted">52.96.189.162</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">256</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.629</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="raw.githubusercontent.com">raw.githubusercontent.com</td>
+          <td class="mono muted">192.168.1.22</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">82</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.557</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="raw.githubusercontent.com">raw.githubusercontent.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">163</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.614</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="raw.githubusercontent.com">raw.githubusercontent.com</td>
+          <td class="mono muted">192.168.1.10</td>
+          <td class="mono muted">104.21.45.100</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.699</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">171</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.363</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">154</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.980</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="windowsupdate.microsoft.com">windowsupdate.microsoft.com</td>
+          <td class="mono muted">192.168.1.17</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">2197</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.100</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.26</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">90</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.316</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">141</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:30.984</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="es.wikipedia.org">es.wikipedia.org</td>
+          <td class="mono muted">192.168.1.12</td>
+          <td class="mono muted">104.83.34.182</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.812</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">116</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.779</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.28</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">81</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.293</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="elpais.com">elpais.com</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="mono muted">52.96.189.162</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.692</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="googlevideo.com">googlevideo.com</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">88</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.314</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="googlevideo.com">googlevideo.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.21</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">134</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.913</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="googlevideo.com">googlevideo.com</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="mono muted">104.21.45.100</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.393</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">149</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.771</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.21</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">158</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:33.720</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="wikipedia.org">wikipedia.org</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">172.217.16.142</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:36.151</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="github.com">github.com</td>
+          <td class="mono muted">192.168.1.25</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">121</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:36.832</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="github.com">github.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">138</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:36.676</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="github.com">github.com</td>
+          <td class="mono muted">192.168.1.30</td>
+          <td class="mono muted">23.211.15.236</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">512</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:36.328</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="github.com">github.com</td>
+          <td class="mono muted">192.168.1.23</td>
+          <td class="mono muted">93.184.216.34</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">1484</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:36.192</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="docs.python.org">docs.python.org</td>
+          <td class="mono muted">192.168.1.29</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">103</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:36.469</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="docs.python.org">docs.python.org</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.14</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">120</td>
+        </tr>
+<tr>
+          <td class="mono">17:52:36.719</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="docs.python.org">docs.python.org</td>
+          <td class="mono muted">192.168.1.20</td>
+          <td class="mono muted">93.184.216.34</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">256</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">17:52:36.798</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="dom-hi" title="perplexity.ai">perplexity.ai</td>
+          <td class="mono muted">192.168.1.19</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">107</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">17:52:36.437</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="dom-hi" title="perplexity.ai">perplexity.ai</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.27</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">156</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">17:52:36.577</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="perplexity.ai">perplexity.ai</td>
+          <td class="mono muted">192.168.1.16</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">2197</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">17:52:36.511</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="perplexity.ai">perplexity.ai</td>
+          <td class="mono muted">192.168.1.24</td>
+          <td class="mono muted">151.101.1.140</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">54</td>
+        </tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+  <footer>NetMonitor Aula · Universidad Nebrija · Programación de Sistemas Distribuidos 2025/2026</footer>
+</div>
+</body>
+</html>

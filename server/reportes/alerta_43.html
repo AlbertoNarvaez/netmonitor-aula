@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>⚠ Alerta #43 — DESKTOP-IVVTO1M</title>
+<style>
+  :root{--bg:#060a0f;--surf:#0d1520;--border:#1a2d45;--accent:#00d4ff;
+    --green:#00ff9d;--warn:#ffb300;--danger:#ff3d5a;--text:#cde4f5;--muted:#4a6a8a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;padding:32px;}
+  body::before{content:'';position:fixed;inset:0;
+    background-image:linear-gradient(rgba(255,61,90,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,61,90,0.03) 1px,transparent 1px);
+    background-size:40px 40px;pointer-events:none;z-index:0;}
+  .wrap{position:relative;z-index:1;max-width:1300px;margin:0 auto;}
+
+  .alert-banner{background:rgba(255,61,90,0.1);border:1px solid rgba(255,61,90,0.4);
+    border-radius:12px;padding:24px 28px;margin-bottom:28px;}
+  .alert-title{font-family:Arial,sans-serif;font-size:24px;font-weight:800;
+    color:var(--danger);margin-bottom:12px;}
+  .alert-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;}
+  .meta-item{background:rgba(0,0,0,0.3);border-radius:8px;padding:10px 14px;}
+  .meta-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .meta-val{font-size:15px;color:#fff;font-weight:bold;}
+  .meta-val.danger{color:var(--danger);}
+
+  .card{background:var(--surf);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;}
+  .card-hdr{padding:12px 18px;border-bottom:1px solid var(--border);font-family:Arial,sans-serif;
+    font-weight:700;font-size:14px;color:#fff;}
+  .table-wrap{max-height:500px;overflow-y:auto;}
+  table{width:100%;border-collapse:collapse;font-size:11px;}
+  thead th{padding:8px 10px;text-align:left;color:var(--muted);font-size:10px;
+    text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);
+    background:var(--surf);position:sticky;top:0;}
+  tbody tr{border-bottom:1px solid rgba(26,45,69,0.4);}
+  tbody tr:hover{background:rgba(0,212,255,0.03);}
+  .alerta-row{background:rgba(255,61,90,0.08)!important;}
+  .alerta-row:hover{background:rgba(255,61,90,0.14)!important;}
+  td{padding:6px 10px;vertical-align:middle;}
+  .tag{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:bold;}
+  .tdns{background:rgba(0,212,255,0.15);color:var(--accent);}
+  .tdnsr{background:rgba(0,212,255,0.07);color:#5aa8cc;}
+  .thttps{background:rgba(0,255,157,0.12);color:var(--green);}
+  .thttp{background:rgba(255,179,0,0.12);color:var(--warn);}
+  .ttcp{background:rgba(100,100,150,0.15);color:#8899bb;}
+  .dom-hi{color:var(--danger);font-weight:bold;}
+  .mono{font-family:'Courier New',monospace;}
+  .muted{color:var(--muted);font-size:10px;}
+  .proto{color:var(--green);font-size:10px;}
+  .flags{color:var(--warn);font-size:10px;}
+  footer{margin-top:24px;text-align:center;font-size:11px;color:var(--muted);padding-top:16px;
+    border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="alert-banner">
+    <div class="alert-title">⚠ ALERTA #43 — ACCESO A IA DETECTADO</div>
+    <div style="color:var(--muted);font-size:12px;">Generado automáticamente por NetMonitor Aula · 30/04/2026 18:02:01</div>
+    <div class="alert-meta">
+      <div class="meta-item"><div class="meta-lbl">Equipo</div><div class="meta-val">DESKTOP-IVVTO1M</div></div>
+      <div class="meta-item"><div class="meta-lbl">IP</div><div class="meta-val">127.0.0.1</div></div>
+      <div class="meta-item"><div class="meta-lbl">Dominio consultado</div><div class="meta-val danger">ws.chatgpt.com</div></div>
+      <div class="meta-item"><div class="meta-lbl">Servicio detectado</div><div class="meta-val danger">chatgpt.com</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">📦 Historial de paquetes del equipo (filas rojas = dominio vigilado)</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>Hora</th><th>Tipo</th><th>Dominio</th>
+          <th>IP Src</th><th>IP Dst</th><th>Proto</th><th>Flags</th><th>Bytes</th>
+        </tr></thead>
+        <tbody><tr>
+          <td class="mono">18:01:38.021</td>
+          <td><span class="tag ttcp">TCP/56311</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/56311</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">341</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.021</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.021</td>
+          <td><span class="tag ttcp">TCP/56311</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/56311</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">433</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.022</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">794</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.153</td>
+          <td><span class="tag ttcp">TCP/56311</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/56311</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">533</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.156</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">79</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.156</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">79</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.161</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">111</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.162</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">149</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.162</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.165</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.165</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.166</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">2086</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.172</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.173</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.176</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1429</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.178</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">118</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.178</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">146</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.178</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">418</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.182</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.182</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">575</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.182</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.182</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">85</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.186</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.204</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.329</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">602</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.391</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.447</td>
+          <td><span class="tag ttcp">TCP/56311</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/56311</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">423</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.447</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">616</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.448</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.509</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.509</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.510</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">2135</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.540</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">724</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.542</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">287</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.556</td>
+          <td><span class="tag ttcp">TCP/60317</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60317</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">571</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.565</td>
+          <td><span class="tag ttcp">TCP/60320</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60320</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.566</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.566</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">2071</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.567</td>
+          <td><span class="tag ttcp">TCP/56311</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/56311</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">433</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.568</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">743</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.568</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.610</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="usa.asset.d5cdn.com">usa.asset.d5cdn.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.22.200</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.625</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.625</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.626</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK</td>
+          <td class="muted">1514</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.627</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1514</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.627</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">262</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.627</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.627</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">118</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.628</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">804</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.684</td>
+          <td><span class="tag ttcp">TCP/60322</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60322</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.684</td>
+          <td><span class="tag ttcp">TCP/60320</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60320</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.685</td>
+          <td><span class="tag ttcp">TCP/60320</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60320</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.685</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.685</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1816</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.696</td>
+          <td><span class="tag ttcp">TCP/60320</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60320</td>
+          <td class="flags">ACK</td>
+          <td class="muted">1514</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.696</td>
+          <td><span class="tag ttcp">TCP/60320</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60320</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1514</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.696</td>
+          <td><span class="tag ttcp">TCP/60320</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60320</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">262</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.697</td>
+          <td><span class="tag ttcp">TCP/56311</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/56311</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">684</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.697</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.697</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">118</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.743</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">341</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.743</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">341</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.744</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.748</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">393</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.749</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.749</td>
+          <td><span class="tag ttcp">TCP/60318</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60318</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">298</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.750</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.808</td>
+          <td><span class="tag ttcp">TCP/60322</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60322</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.809</td>
+          <td><span class="tag ttcp">TCP/60322</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60322</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.809</td>
+          <td><span class="tag ttcp">TCP/60322</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60322</td>
+          <td class="flags">ACK</td>
+          <td class="muted">1514</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.810</td>
+          <td><span class="tag ttcp">TCP/60322</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60322</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1514</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.810</td>
+          <td><span class="tag ttcp">TCP/60322</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60322</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">262</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.810</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.811</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">118</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.815</td>
+          <td><span class="tag ttcp">TCP/60320</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60320</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">341</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.816</td>
+          <td><span class="tag ttcp">TCP/60320</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60320</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">341</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.816</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.925</td>
+          <td><span class="tag ttcp">TCP/60322</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60322</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">341</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.925</td>
+          <td><span class="tag ttcp">TCP/60322</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/60322</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">341</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:38.925</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-3-97-255-132.ca-central-1.compute.amazonaws.com">ec2-3-97-255-132.ca-central-1.compute.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">3.97.255.132</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:39.247</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">871</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:39.255</td>
+          <td><span class="tag ttcp">TCP/51327</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/51327</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">504</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:39.257</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1245</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:39.265</td>
+          <td><span class="tag ttcp">TCP/65093</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/65093</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:39.307</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:39.372</td>
+          <td><span class="tag ttcp">TCP/65093</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/65093</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">476</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:39.416</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:40.380</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">143</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:40.393</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:40.421</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">132</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:40.461</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:40.991</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">143</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:41.028</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">132</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:41.070</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:44.030</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-52-86-188-173.compute-1.amazonaws.com">ec2-52-86-188-173.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">52.86.188.173</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">93</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:44.068</td>
+          <td><span class="tag ttcp">TCP/64237</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">52.86.188.173</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/64237</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">121</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:44.124</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-52-86-188-173.compute-1.amazonaws.com">ec2-52-86-188-173.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">52.86.188.173</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:44.137</td>
+          <td><span class="tag ttcp">TCP/64237</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">52.86.188.173</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/64237</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">93</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:44.140</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-52-86-188-173.compute-1.amazonaws.com">ec2-52-86-188-173.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">52.86.188.173</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">3742</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:44.170</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-52-86-188-173.compute-1.amazonaws.com">ec2-52-86-188-173.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">52.86.188.173</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">85</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:44.247</td>
+          <td><span class="tag ttcp">TCP/64237</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">52.86.188.173</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/64237</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:44.326</td>
+          <td><span class="tag ttcp">TCP/64237</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">52.86.188.173</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/64237</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.176</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="ota.nvidia.com">ota.nvidia.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">74</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.182</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="ota.nvidia.com">ota.nvidia.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">180</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.183</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.183</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="167.88.16.2.in-addr.arpa">167.88.16.2.in-addr.arpa</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">84</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.190</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.191</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="167.88.16.2.in-addr.arpa">167.88.16.2.in-addr.arpa</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">147</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.191</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.192</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">610</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.197</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.197</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">309</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.197</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="a2-16-88-167.deploy.static.akamaitechnologies.com">a2-16-88-167.deploy.static.akamaitechnologies.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">304</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.203</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.203</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">341</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.219</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">579</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:48.219</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="a2-16-88-167.deploy.static.akamaitechnologies.com">a2-16-88-167.deploy.static.akamaitechnologies.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.026</td>
+          <td><span class="tag ttcp">TCP/8095</span></td>
+          <td class="" title="ec2-100-50-20-250.compute-1.amazonaws.com">ec2-100-50-20-250.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">100.50.20.250</td>
+          <td class="proto">TCP/8095</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">97</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.131</td>
+          <td><span class="tag ttcp">TCP/62256</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">100.50.20.250</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/62256</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.228</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="a2-16-88-167.deploy.static.akamaitechnologies.com">a2-16-88-167.deploy.static.akamaitechnologies.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">55</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.233</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.261</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">871</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.271</td>
+          <td><span class="tag ttcp">TCP/51327</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/51327</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">504</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.272</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1245</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.278</td>
+          <td><span class="tag ttcp">TCP/65093</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/65093</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.321</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.323</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">78</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:49.323</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">82</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.370</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.386</td>
+          <td><span class="tag ttcp">TCP/65093</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/65093</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">476</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:49.431</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:50.242</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="a2-16-88-167.deploy.static.akamaitechnologies.com">a2-16-88-167.deploy.static.akamaitechnologies.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">55</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:50.251</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:50.880</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.google.com">www.google.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">74</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:50.880</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="www.google.com">www.google.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">74</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:50.880</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">143</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:50.887</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.google.com">www.google.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">99</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:50.888</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="www.google.com">www.google.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">202</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:50.889</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:50.917</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">132</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:50.960</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:51.255</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="a2-16-88-167.deploy.static.akamaitechnologies.com">a2-16-88-167.deploy.static.akamaitechnologies.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">55</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:51.259</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:51.350</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">143</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:51.384</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">132</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:01:51.426</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:52.126</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-54-88-230-22.compute-1.amazonaws.com">ec2-54-88-230-22.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">54.88.230.22</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">83</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:52.231</td>
+          <td><span class="tag ttcp">TCP/51467</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">54.88.230.22</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/51467</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:52.267</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="a2-16-88-167.deploy.static.akamaitechnologies.com">a2-16-88-167.deploy.static.akamaitechnologies.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">55</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:52.270</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:52.581</td>
+          <td><span class="tag ttcp">TCP/51805</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">100.50.20.250</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/51805</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">85</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:52.626</td>
+          <td><span class="tag ttcp">TCP/9000</span></td>
+          <td class="" title="ec2-100-50-20-250.compute-1.amazonaws.com">ec2-100-50-20-250.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">100.50.20.250</td>
+          <td class="proto">TCP/9000</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:53.173</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="ec2-44-222-9-246.compute-1.amazonaws.com">ec2-44-222-9-246.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">44.222.9.246</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">55</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:53.219</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="a2-16-88-167.deploy.static.akamaitechnologies.com">a2-16-88-167.deploy.static.akamaitechnologies.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:53.224</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">78</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:53.224</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="a2-16-88-167.deploy.static.akamaitechnologies.com">a2-16-88-167.deploy.static.akamaitechnologies.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | RST</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:53.225</td>
+          <td><span class="tag ttcp">TCP/58982</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">2.16.88.167</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/58982</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:53.276</td>
+          <td><span class="tag ttcp">TCP/57481</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">44.222.9.246</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/57481</td>
+          <td class="flags">ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:55.309</td>
+          <td><span class="tag ttcp">TCP/5228</span></td>
+          <td class="" title="wm-in-f188.1e100.net">wm-in-f188.1e100.net</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">64.233.166.188</td>
+          <td class="proto">TCP/5228</td>
+          <td class="flags">ACK</td>
+          <td class="muted">55</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:55.341</td>
+          <td><span class="tag ttcp">TCP/51315</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">64.233.166.188</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/51315</td>
+          <td class="flags">ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:58.101</td>
+          <td><span class="tag ttcp">TCP/9000</span></td>
+          <td class="" title="ec2-100-50-20-250.compute-1.amazonaws.com">ec2-100-50-20-250.compute-1.amazonaws.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">100.50.20.250</td>
+          <td class="proto">TCP/9000</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">85</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:58.208</td>
+          <td><span class="tag ttcp">TCP/51805</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">100.50.20.250</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/51805</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:59.272</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">871</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:59.281</td>
+          <td><span class="tag ttcp">TCP/51327</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/51327</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">504</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:59.282</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">1245</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:59.289</td>
+          <td><span class="tag ttcp">TCP/65093</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/65093</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:59.332</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:59.407</td>
+          <td><span class="tag ttcp">TCP/65093</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/65093</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">476</td>
+        </tr>
+<tr>
+          <td class="mono">18:01:59.455</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">162.247.241.14</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:02:00.443</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">144</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:00.455</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="beacons.gcp.gvt2.com">beacons.gcp.gvt2.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">80</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:00.457</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="beacons.gcp.gvt2.com">beacons.gcp.gvt2.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">80</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:00.463</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="beacons.gcp.gvt2.com">beacons.gcp.gvt2.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">167</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:00.463</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="beacons.gcp.gvt2.com">beacons.gcp.gvt2.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">126</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:00.475</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">133</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:02:00.517</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:02:00.941</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">144</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:02:00.960</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">84</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:02:00.961</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:00.965</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:00.966</td>
+          <td><span class="tag ttcp">TCP/53809</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/53809</td>
+          <td class="flags">ACK | FIN</td>
+          <td class="muted">60</td>
+        </tr>
+<tr class="alerta-row">
+          <td class="mono">18:02:00.967</td>
+          <td><span class="tag thttps">HTTPS</span></td>
+          <td class="dom-hi" title="ws.chatgpt.com">ws.chatgpt.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">104.18.39.21</td>
+          <td class="proto">HTTPS</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.280</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="ctldl.windowsupdate.com">ctldl.windowsupdate.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">83</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.317</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="ctldl.windowsupdate.com">ctldl.windowsupdate.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">83</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.335</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="ctldl.windowsupdate.com">ctldl.windowsupdate.com</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">235</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.337</td>
+          <td><span class="tag thttp">HTTP</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="proto">HTTP</td>
+          <td class="flags">SYN</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.338</td>
+          <td><span class="tag tdns">DNS ▶</span></td>
+          <td class="" title="172.34.232.199.in-addr.arpa">172.34.232.199.in-addr.arpa</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">87</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.343</td>
+          <td><span class="tag ttcp">TCP/55502</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/55502</td>
+          <td class="flags">SYN | ACK</td>
+          <td class="muted">66</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.343</td>
+          <td><span class="tag thttp">HTTP</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="proto">HTTP</td>
+          <td class="flags">ACK</td>
+          <td class="muted">54</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.343</td>
+          <td><span class="tag thttp">HTTP</span></td>
+          <td class="" title="ctldl.windowsupdate.com">ctldl.windowsupdate.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="proto">HTTP</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">335</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.344</td>
+          <td><span class="tag tdnsr">DNS ◀</span></td>
+          <td class="" title="172.34.232.199.in-addr.arpa">172.34.232.199.in-addr.arpa</td>
+          <td class="mono muted">192.168.1.1</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">DNS</td>
+          <td class="flags">—</td>
+          <td class="muted">141</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.348</td>
+          <td><span class="tag ttcp">TCP/55502</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/55502</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.348</td>
+          <td><span class="tag ttcp">TCP/55502</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/55502</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">256</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.352</td>
+          <td><span class="tag thttp">HTTP</span></td>
+          <td class="" title="ctldl.windowsupdate.com">ctldl.windowsupdate.com</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="proto">HTTP</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">336</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.357</td>
+          <td><span class="tag ttcp">TCP/55502</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/55502</td>
+          <td class="flags">ACK</td>
+          <td class="muted">60</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.357</td>
+          <td><span class="tag ttcp">TCP/55502</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/55502</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">257</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.371</td>
+          <td><span class="tag ttcp">TCP/55502</span></td>
+          <td class="" title="DESKTOP-IVVTO1M.home">DESKTOP-IVVTO1M.home</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="proto">TCP/55502</td>
+          <td class="flags">ACK | PSH</td>
+          <td class="muted">257</td>
+        </tr>
+<tr>
+          <td class="mono">18:02:01.371</td>
+          <td><span class="tag thttp">HTTP</span></td>
+          <td class="" title="—">—</td>
+          <td class="mono muted">192.168.1.13</td>
+          <td class="mono muted">199.232.34.172</td>
+          <td class="proto">HTTP</td>
+          <td class="flags">ACK</td>
+          <td class="muted">66</td>
+        </tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+  <footer>NetMonitor Aula · Universidad Nebrija · Programación de Sistemas Distribuidos 2025/2026</footer>
+</div>
+</body>
+</html>

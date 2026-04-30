@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetMonitor Aula — Panel de Control</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #04080f;
+  --surf: #080f1a;
+  --surf2: #0c1525;
+  --border: #0f2035;
+  --border2: #1a3550;
+  --accent: #0ea5e9;
+  --accent2: #38bdf8;
+  --green: #22d3a0;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --danger2: #ff6b6b;
+  --text: #cbd5e1;
+  --text2: #94a3b8;
+  --muted: #334155;
+  --mono: 'JetBrains Mono', monospace;
+  --ui: 'Space Grotesk', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid scanline overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    linear-gradient(rgba(14,165,233,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,165,233,0.018) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ── Header ── */
+header {
+  position: relative; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  height: 52px;
+  border-bottom: 1px solid var(--border2);
+  background: rgba(8,15,26,0.98);
+  flex-shrink: 0;
+}
+.logo {
+  font-family: var(--ui); font-size: 17px; font-weight: 800;
+  letter-spacing: -0.5px; color: #fff;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-badge {
+  background: var(--danger); color: #fff;
+  font-size: 9px; font-weight: 700; padding: 2px 7px;
+  border-radius: 3px; letter-spacing: 1px;
+  animation: badgePulse 2s infinite;
+}
+@keyframes badgePulse {
+  0%,100% { opacity: 1; } 50% { opacity: 0.6; }
+}
+.hdr-stats {
+  display: flex; gap: 24px; align-items: center;
+  font-size: 11px; color: var(--text2);
+}
+.hdr-stat { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.hdr-stat-val { font-size: 18px; font-weight: 700; color: var(--accent); font-family: var(--ui); line-height: 1; }
+.hdr-stat-val.danger { color: var(--danger2); }
+.hdr-stat-val.green { color: var(--green); }
+.hdr-stat-lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.hdr-right { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--text2); }
+.live { display: flex; align-items: center; gap: 6px; }
+.live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: livePulse 1.5s infinite; }
+@keyframes livePulse { 0%,100%{box-shadow:0 0 0 0 rgba(34,211,160,0.5);}50%{box-shadow:0 0 0 5px rgba(34,211,160,0);} }
+
+.btn-clear {
+  padding: 5px 12px; border-radius: 4px; border: 1px solid var(--border2);
+  background: transparent; color: var(--text2); font-family: var(--mono);
+  font-size: 10px; cursor: pointer; transition: all .2s;
+}
+.btn-clear:hover { border-color: var(--danger); color: var(--danger); }
+
+/* ── Tabs ── */
+.tabs {
+  position: relative; z-index: 9;
+  display: flex; border-bottom: 1px solid var(--border2);
+  background: rgba(8,15,26,0.9); flex-shrink: 0;
+}
+.tab {
+  padding: 9px 20px; font-size: 11px; cursor: pointer;
+  color: var(--muted); border-bottom: 2px solid transparent;
+  transition: all .2s; font-family: var(--mono); letter-spacing: 0.5px;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab .badge-cnt {
+  display: inline-block; background: var(--danger); color: #fff;
+  font-size: 9px; padding: 1px 5px; border-radius: 10px; margin-left: 5px;
+}
+
+/* ── Layout principal ── */
+.main {
+  position: relative; z-index: 1;
+  flex: 1; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.panel { display: none; flex: 1; overflow: hidden; }
+.panel.active { display: flex; flex-direction: column; }
+
+/* ── Panel Aula ── */
+.aula-layout {
+  flex: 1; display: grid;
+  grid-template-columns: 1fr 300px;
+  overflow: hidden;
+}
+.aula-grid-wrap { overflow-y: auto; padding: 20px; }
+.aula-grid-wrap::-webkit-scrollbar { width: 4px; }
+.aula-grid-wrap::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+.aula-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+.pc-card {
+  background: var(--surf); border: 1px solid var(--border2);
+  border-radius: 8px; padding: 12px 14px;
+  cursor: pointer; transition: all .2s; position: relative;
+}
+.pc-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.pc-card.alerta { border-color: var(--danger)!important; background: rgba(239,68,68,0.06); animation: cardPulse 1.5s infinite; }
+.pc-card.offline { opacity: 0.4; }
+@keyframes cardPulse {
+  0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.3);}
+  50%{box-shadow:0 0 0 6px rgba(239,68,68,0);}
+}
+.pc-name { font-family: var(--ui); font-weight: 700; font-size: 13px; color: #fff; margin-bottom: 3px; }
+.pc-ip { font-size: 10px; color: var(--muted); margin-bottom: 8px; }
+.pc-status { display: flex; align-items: center; gap: 5px; font-size: 10px; }
+.status-dot { width: 5px; height: 5px; border-radius: 50%; }
+.status-dot.online { background: var(--green); }
+.status-dot.offline { background: var(--muted); }
+.status-dot.alerta { background: var(--danger); animation: livePulse 1s infinite; }
+.pc-metrics { margin-top: 8px; display: flex; gap: 8px; }
+.pc-metric { flex: 1; background: rgba(0,0,0,0.3); border-radius: 4px; padding: 5px 6px; text-align: center; }
+.pc-metric-val { font-size: 14px; font-weight: 700; color: var(--accent); }
+.pc-metric-val.danger { color: var(--danger); }
+.pc-metric-lbl { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.pc-alerta-badge {
+  position: absolute; top: 8px; right: 8px;
+  background: var(--danger); color: #fff; font-size: 9px;
+  padding: 2px 6px; border-radius: 3px; font-weight: 700;
+}
+
+/* Sidebar aula */
+.aula-sidebar {
+  border-left: 1px solid var(--border2);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.sidebar-section { border-bottom: 1px solid var(--border2); flex-shrink: 0; }
+.sidebar-hdr {
+  padding: 10px 16px; font-family: var(--ui); font-weight: 700;
+  font-size: 12px; color: var(--text2);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.vigilados-list { padding: 6px 0; max-height: 180px; overflow-y: auto; }
+.vigilado-item {
+  padding: 5px 16px; font-size: 10px; color: var(--text2);
+  display: flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid rgba(15,32,53,0.5);
+}
+.vigilado-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--danger); flex-shrink: 0; }
+
+/* Feed alertas en sidebar */
+.alertas-feed { flex: 1; overflow-y: auto; }
+.alertas-feed::-webkit-scrollbar { width: 3px; }
+.alertas-feed::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+.alerta-item {
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+  animation: slideDown 0.4s ease;
+}
+@keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+.alerta-item-hdr { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.alerta-hostname { font-family: var(--ui); font-weight: 700; font-size: 12px; color: var(--danger2); }
+.alerta-ts { font-size: 10px; color: var(--muted); }
+.alerta-dominio { font-size: 11px; color: #fff; margin-bottom: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.alerta-ip { font-size: 10px; color: var(--muted); }
+.alerta-link {
+  display: inline-block; margin-top: 5px; padding: 3px 8px;
+  background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 3px; color: var(--danger2); font-size: 9px;
+  text-decoration: none; transition: all .2s;
+}
+.alerta-link:hover { background: rgba(239,68,68,0.3); }
+.no-alertas { padding: 24px 16px; text-align: center; color: var(--muted); font-size: 11px; }
+
+/* ── Panel Feed Global ── */
+.feed-layout {
+  flex: 1; display: grid;
+  grid-template-columns: 1fr 280px;
+  overflow: hidden;
+}
+.feed-wrap { overflow: hidden; display: flex; flex-direction: column; }
+.feed-controls {
+  display: flex; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--border2);
+  align-items: center; flex-shrink: 0;
+}
+.filt-btn {
+  padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border2);
+  background: transparent; color: var(--muted); font-family: var(--mono);
+  font-size: 10px; cursor: pointer; transition: all .2s;
+}
+.filt-btn:hover { color: var(--text); border-color: var(--accent); }
+.filt-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(14,165,233,0.08); }
+
+.table-wrap { flex: 1; overflow-y: auto; }
+.table-wrap::-webkit-scrollbar { width: 4px; }
+.table-wrap::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
+thead th {
+  padding: 7px 10px; text-align: left; color: var(--muted);
+  font-size: 9px; text-transform: uppercase; letter-spacing: 1px;
+  border-bottom: 1px solid var(--border2);
+  background: var(--surf); position: sticky; top: 0; z-index: 2;
+}
+tbody tr { border-bottom: 1px solid rgba(15,32,53,0.6); transition: background .1s; }
+tbody tr:hover { background: rgba(14,165,233,0.04); }
+tbody tr.row-alert { background: rgba(239,68,68,0.06)!important; }
+tbody tr.row-new { animation: flashRow .8s ease; }
+@keyframes flashRow { from { background: rgba(14,165,233,0.15); } to { background: transparent; } }
+td { padding: 5px 10px; vertical-align: middle; max-width: 0; }
+
+.tag { display: inline-block; padding: 1px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; white-space: nowrap; }
+.tag-DNS     { background: rgba(14,165,233,0.15); color: var(--accent2); }
+.tag-DNSR    { background: rgba(14,165,233,0.07); color: #5b9fcc; }
+.tag-HTTPS   { background: rgba(34,211,160,0.12); color: var(--green); }
+.tag-HTTP    { background: rgba(245,158,11,0.12); color: var(--warn); }
+.tag-SSH     { background: rgba(239,68,68,0.12); color: var(--danger2); }
+.tag-TCP     { background: rgba(100,116,139,0.12); color: #64748b; }
+.tag-ALERT   { background: rgba(239,68,68,0.2); color: var(--danger2); border: 1px solid rgba(239,68,68,0.3); }
+
+.td-mono { font-family: var(--mono); }
+.td-muted { color: var(--muted); font-size: 9.5px; }
+.td-host { font-weight: 600; color: var(--accent2); }
+.td-dom { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
+.td-dom.alerta { color: var(--danger2); font-weight: 700; }
+
+/* Feed sidebar: top dominios */
+.feed-sidebar { border-left: 1px solid var(--border2); overflow-y: auto; }
+.feed-sidebar::-webkit-scrollbar { width: 3px; }
+.feed-sidebar::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+.dom-section { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.dom-section-hdr { padding: 6px 14px; font-family: var(--ui); font-weight: 700; font-size: 11px; color: var(--text2); }
+.dom-item {
+  padding: 5px 14px; display: flex; align-items: center; gap: 8px;
+  font-size: 10px; border-bottom: 1px solid rgba(15,32,53,0.4);
+}
+.dom-item:last-child { border-bottom: none; }
+.dom-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text2); }
+.dom-name.vigilado { color: var(--danger2); font-weight: 700; }
+.dom-bar-wrap { width: 50px; height: 3px; background: rgba(255,255,255,0.05); border-radius: 2px; flex-shrink: 0; }
+.dom-bar { height: 100%; background: var(--accent); border-radius: 2px; transition: width .5s; }
+.dom-bar.vigilado { background: var(--danger); }
+.dom-cnt { color: var(--accent); min-width: 24px; text-align: right; font-weight: 700; }
+.dom-cnt.vigilado { color: var(--danger2); }
+
+/* ── Detalle equipo (modal) ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 100;
+  background: rgba(4,8,15,0.85); backdrop-filter: blur(4px);
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--surf); border: 1px solid var(--border2);
+  border-radius: 12px; width: 860px; max-height: 80vh;
+  display: flex; flex-direction: column; overflow: hidden;
+  animation: modalIn .25s ease;
+}
+@keyframes modalIn { from { opacity:0; transform:scale(.96); } to { opacity:1; transform:scale(1); } }
+.modal-hdr {
+  padding: 14px 20px; border-bottom: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+}
+.modal-title { font-family: var(--ui); font-weight: 800; font-size: 16px; color: #fff; }
+.modal-close { background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer; }
+.modal-close:hover { color: var(--text); }
+.modal-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
+
+/* ── Empty states ── */
+.empty { padding: 48px 20px; text-align: center; color: var(--muted); font-size: 12px; line-height: 2; }
+.empty .icon { font-size: 36px; margin-bottom: 12px; }
+.empty code { color: var(--accent); background: rgba(14,165,233,0.08); padding: 1px 6px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    NetMonitor <span style="color:var(--accent)">Aula</span>
+    <span class="logo-badge">LIVE</span>
+  </div>
+  <div class="hdr-stats">
+    <div class="hdr-stat">
+      <div class="hdr-stat-val green" id="h-online">0</div>
+      <div class="hdr-stat-lbl">Online</div>
+    </div>
+    <div class="hdr-stat">
+      <div class="hdr-stat-val" id="h-total">0</div>
+      <div class="hdr-stat-lbl">Equipos</div>
+    </div>
+    <div class="hdr-stat">
+      <div class="hdr-stat-val" id="h-pkts">0</div>
+      <div class="hdr-stat-lbl">Paquetes</div>
+    </div>
+    <div class="hdr-stat">
+      <div class="hdr-stat-val danger" id="h-alertas">0</div>
+      <div class="hdr-stat-lbl">Alertas</div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="live"><div class="live-dot"></div><span id="clock">--:--:--</span></div>
+    <button class="btn-clear" onclick="clearFeed()">🗑 Limpiar feed</button>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('aula',this)">🖥 Vista Aula</div>
+  <div class="tab" onclick="switchTab('feed',this)">📡 Feed Global <span class="badge-cnt" id="tab-alertas-cnt" style="display:none">0</span></div>
+  <div class="tab" onclick="switchTab('alertas',this)">⚠ Alertas <span class="badge-cnt" id="tab-alertas-cnt2">0</span></div>
+</div>
+
+<div class="main">
+
+  <!-- ── TAB AULA ── -->
+  <div id="panel-aula" class="panel active">
+    <div class="aula-layout">
+      <div class="aula-grid-wrap">
+        <div class="aula-grid" id="aula-grid">
+          <div class="empty" style="grid-column:1/-1">
+            <div class="icon">🖥</div>
+            Esperando conexiones de los equipos...<br>
+            Lanza <code>deploy_aula.bat</code> desde el equipo del profesor
+          </div>
+        </div>
+      </div>
+      <div class="aula-sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-hdr">🚫 Dominios vigilados</div>
+          <div class="vigilados-list" id="vigilados-list"></div>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-hdr">
+            ⚠ Alertas recientes
+            <span id="alertas-cnt" style="color:var(--danger);font-weight:700">0</span>
+          </div>
+        </div>
+        <div class="alertas-feed" id="alertas-sidebar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB FEED GLOBAL ── -->
+  <div id="panel-feed" class="panel">
+    <div class="feed-layout">
+      <div class="feed-wrap">
+        <div class="feed-controls">
+          <button class="filt-btn active" onclick="setFilter('ALL',this)">ALL</button>
+          <button class="filt-btn" onclick="setFilter('DNS',this)">DNS</button>
+          <button class="filt-btn" onclick="setFilter('HTTPS',this)">HTTPS</button>
+          <button class="filt-btn" onclick="setFilter('HTTP',this)">HTTP</button>
+          <button class="filt-btn" onclick="setFilter('ALERT',this)">⚠ Alertas</button>
+          <span style="margin-left:auto;font-size:10px;color:var(--muted)" id="feed-count">0 paquetes</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>Hora</th><th>Equipo</th><th>IP</th><th>Tipo</th>
+              <th>Dominio / Host</th><th>IP Dst</th><th>Proto</th><th>Flags</th><th>Bytes</th>
+            </tr></thead>
+            <tbody id="feed-body"></tbody>
+          </table>
+          <div id="feed-empty" class="empty" style="display:none">
+            <div class="icon">📭</div>
+            Sin paquetes aún. Conecta los clientes sniffer.
+          </div>
+        </div>
+      </div>
+      <div class="feed-sidebar">
+        <div class="dom-section">
+          <div class="dom-section-hdr">🌐 Top dominios (global)</div>
+          <div id="global-doms"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB ALERTAS ── -->
+  <div id="panel-alertas" class="panel">
+    <div style="padding:20px;overflow-y:auto;height:100%">
+      <div id="alertas-list">
+        <div class="empty">
+          <div class="icon">✅</div>
+          Sin alertas. Ningún equipo ha accedido a dominios vigilados.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Modal detalle equipo ── -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div class="modal-title" id="modal-title">Detalle equipo</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ── Estado local ─────────────────────────────────────────────────
+let estado     = {};
+let alertasData = [];
+let feedPkts   = [];
+let vigilados  = [];
+let activeFilter = 'ALL';
+let lastAlertCount = 0;
+
+// ── Tabs ─────────────────────────────────────────────────────────
+function switchTab(name, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  el.classList.add('active');
+}
+
+// ── Filtros feed ─────────────────────────────────────────────────
+function setFilter(f, btn) {
+  activeFilter = f;
+  document.querySelectorAll('.filt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderFeed();
+}
+
+// ── Tags ─────────────────────────────────────────────────────────
+function tagHtml(tipo, proto, esAlerta) {
+  if (esAlerta)              return '<span class="tag tag-ALERT">⚠ ALERTA</span>';
+  if (tipo==='DNS')          return '<span class="tag tag-DNS">DNS ▶</span>';
+  if (tipo==='DNS_RESP')     return '<span class="tag tag-DNSR">DNS ◀</span>';
+  if (proto==='HTTPS')       return '<span class="tag tag-HTTPS">HTTPS</span>';
+  if (proto==='HTTP')        return '<span class="tag tag-HTTP">HTTP</span>';
+  if (proto==='SSH')         return '<span class="tag tag-SSH">SSH</span>';
+  return `<span class="tag tag-TCP">${proto||'TCP'}</span>`;
+}
+
+// ── Render grid de PCs ───────────────────────────────────────────
+function renderAula(equipos) {
+  const grid = document.getElementById('aula-grid');
+  if (Object.keys(equipos).length === 0) {
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1">
+      <div class="icon">🖥</div>
+      Esperando conexiones...<br>Lanza <code>deploy_aula.bat</code>
+    </div>`;
+    return;
+  }
+
+  let online = 0;
+  let totalPkts = 0;
+  const html = Object.values(equipos).map(eq => {
+    if (eq.conectado) online++;
+    totalPkts += eq.n_paquetes;
+    const tieneAlerta = eq.n_alertas > 0;
+    const cls = [
+      'pc-card',
+      tieneAlerta ? 'alerta' : '',
+      !eq.conectado ? 'offline' : ''
+    ].filter(Boolean).join(' ');
+    const statusCls = tieneAlerta ? 'alerta' : (eq.conectado ? 'online' : 'offline');
+    const statusTxt = tieneAlerta ? '⚠ ALERTA' : (eq.conectado ? 'ONLINE' : 'OFFLINE');
+    return `<div class="${cls}" onclick="openModal('${eq.hostname}')">
+      ${tieneAlerta ? `<div class="pc-alerta-badge">${eq.n_alertas}</div>` : ''}
+      <div class="pc-name">${eq.hostname}</div>
+      <div class="pc-ip">${eq.ip}</div>
+      <div class="pc-status">
+        <div class="status-dot ${statusCls}"></div>
+        <span style="color:${tieneAlerta?'var(--danger2)':eq.conectado?'var(--green)':'var(--muted)'}">${statusTxt}</span>
+        <span style="margin-left:auto;color:var(--muted)">${eq.ultimo_visto}</span>
+      </div>
+      <div class="pc-metrics">
+        <div class="pc-metric">
+          <div class="pc-metric-val">${eq.n_paquetes}</div>
+          <div class="pc-metric-lbl">pkts</div>
+        </div>
+        <div class="pc-metric">
+          <div class="pc-metric-val ${tieneAlerta?'danger':''}">${eq.n_alertas}</div>
+          <div class="pc-metric-lbl">alertas</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  grid.innerHTML = html;
+
+  document.getElementById('h-online').textContent = online;
+  document.getElementById('h-total').textContent = Object.keys(equipos).length;
+  document.getElementById('h-pkts').textContent = totalPkts;
+}
+
+// ── Render alertas sidebar ────────────────────────────────────────
+function renderAlertasSidebar(alertas) {
+  const cnt = alertas.length;
+  document.getElementById('alertas-cnt').textContent = cnt;
+  document.getElementById('h-alertas').textContent = cnt;
+  document.getElementById('tab-alertas-cnt2').textContent = cnt;
+  if (cnt > lastAlertCount) {
+    document.getElementById('tab-alertas-cnt2').style.display = 'inline';
+    lastAlertCount = cnt;
+  }
+
+  const el = document.getElementById('alertas-sidebar');
+  if (!alertas.length) {
+    el.innerHTML = '<div class="no-alertas">✅ Sin alertas</div>';
+    return;
+  }
+  el.innerHTML = alertas.slice().reverse().slice(0,20).map(a => `
+    <div class="alerta-item">
+      <div class="alerta-item-hdr">
+        <span class="alerta-hostname">${a.hostname}</span>
+        <span class="alerta-ts">${a.ts}</span>
+      </div>
+      <div class="alerta-dominio">→ ${a.dominio}</div>
+      <div class="alerta-ip">${a.ip} · ${a.dominio_vigilado}</div>
+      <a class="alerta-link" href="/reporte/${a.id}" target="_blank">Ver reporte →</a>
+    </div>`).join('');
+}
+
+// ── Render feed global ────────────────────────────────────────────
+function renderFeed() {
+  const body = document.getElementById('feed-body');
+  const empty = document.getElementById('feed-empty');
+
+  const vigiladosSet = new Set(vigilados);
+  const filtered = feedPkts.filter(p => {
+    const dom = (p.dominio||'').toLowerCase();
+    const esAlerta = vigilados.some(v => dom.includes(v));
+    if (activeFilter === 'ALL')   return true;
+    if (activeFilter === 'ALERT') return esAlerta;
+    if (activeFilter === 'DNS')   return p.tipo==='DNS'||p.tipo==='DNS_RESP';
+    return p.protocolo === activeFilter;
+  }).slice(-100);
+
+  document.getElementById('feed-count').textContent = feedPkts.length + ' paquetes';
+  empty.style.display = filtered.length ? 'none' : 'block';
+
+  body.innerHTML = filtered.map((p,i) => {
+    const dom = (p.dominio||'').toLowerCase();
+    const esAlerta = vigilados.some(v => dom.includes(v));
+    return `<tr class="${esAlerta?'row-alert':''} ${i>=filtered.length-5?'row-new':''}">
+      <td class="td-mono td-muted">${p.ts||''}</td>
+      <td class="td-host">${p.hostname||'?'}</td>
+      <td class="td-mono td-muted">${p.ip_equipo||p.ip_src||'—'}</td>
+      <td>${tagHtml(p.tipo, p.protocolo, esAlerta)}</td>
+      <td class="td-dom ${esAlerta?'alerta':''}" title="${p.dominio||''}">${(p.dominio||'—').slice(0,50)}</td>
+      <td class="td-mono td-muted">${p.ip_dst||'—'}</td>
+      <td style="color:var(--green);font-size:10px">${p.protocolo||'—'}</td>
+      <td style="color:var(--warn);font-size:10px">${p.flags||'—'}</td>
+      <td class="td-muted">${p.tamano||'—'}</td>
+    </tr>`;
+  }).join('');
+
+  // Auto scroll
+  const wrap = document.querySelector('.table-wrap');
+  if (wrap) wrap.scrollTop = wrap.scrollHeight;
+}
+
+// ── Render dominios globales ──────────────────────────────────────
+function renderDominiosGlobal(equipos) {
+  const allDoms = {};
+  Object.values(equipos).forEach(eq => {
+    (eq.top_dominios||[]).forEach(([d,c]) => { allDoms[d] = (allDoms[d]||0) + c; });
+  });
+  const sorted = Object.entries(allDoms).sort((a,b)=>b[1]-a[1]).slice(0,20);
+  const max = sorted[0]?.[1] || 1;
+  const vigiladosSet = new Set(vigilados);
+  const el = document.getElementById('global-doms');
+  el.innerHTML = sorted.map(([d,c]) => {
+    const es = vigilados.some(v => d.toLowerCase().includes(v));
+    return `<div class="dom-item">
+      <div class="dom-name ${es?'vigilado':''}" title="${d}">${d.slice(0,35)}</div>
+      <div class="dom-bar-wrap"><div class="dom-bar ${es?'vigilado':''}" style="width:${Math.round(c/max*100)}%"></div></div>
+      <div class="dom-cnt ${es?'vigilado':''}">${c}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── Render tab alertas ────────────────────────────────────────────
+function renderAlertasTab(alertas) {
+  const el = document.getElementById('alertas-list');
+  if (!alertas.length) {
+    el.innerHTML = `<div class="empty"><div class="icon">✅</div>Sin alertas.</div>`;
+    return;
+  }
+  el.innerHTML = alertas.slice().reverse().map(a => `
+    <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.25);
+      border-radius:8px;padding:16px 20px;margin-bottom:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-family:var(--ui);font-weight:800;font-size:15px;color:var(--danger2)">
+          ⚠ Alerta #${a.id} — ${a.hostname}
+        </span>
+        <span style="font-size:11px;color:var(--muted)">${a.fecha} ${a.ts}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px">
+        ${[['Equipo',a.hostname],['IP',a.ip],['Dominio detectado',a.dominio],['Servicio',a.dominio_vigilado]].map(([l,v])=>`
+        <div style="background:rgba(0,0,0,0.3);border-radius:6px;padding:8px 12px">
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">${l}</div>
+          <div style="font-size:13px;color:#fff;font-weight:700">${v}</div>
+        </div>`).join('')}
+      </div>
+      <a href="/reporte/${a.id}" target="_blank"
+        style="display:inline-block;padding:5px 14px;background:rgba(239,68,68,0.15);
+        border:1px solid rgba(239,68,68,0.35);border-radius:4px;color:var(--danger2);
+        font-size:11px;text-decoration:none">
+        📄 Ver reporte completo →
+      </a>
+    </div>`).join('');
+}
+
+// ── Render vigilados ─────────────────────────────────────────────
+function renderVigilados(doms) {
+  vigilados = doms;
+  document.getElementById('vigilados-list').innerHTML =
+    doms.slice(0,15).map(d => `<div class="vigilado-item">${d}</div>`).join('');
+}
+
+// ── Modal equipo ─────────────────────────────────────────────────
+function openModal(hostname) {
+  const eq = estado[hostname];
+  if (!eq) return;
+  document.getElementById('modal-title').textContent = `🖥 ${hostname} — ${eq.ip}`;
+  const pkts = (eq.ultimos_pkts||[]).slice().reverse();
+  document.getElementById('modal-body').innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px">
+      ${[
+        ['Estado', eq.conectado?'ONLINE':'OFFLINE', eq.conectado?'var(--green)':'var(--muted)'],
+        ['Paquetes', eq.n_paquetes, 'var(--accent)'],
+        ['Alertas', eq.n_alertas, eq.n_alertas>0?'var(--danger2)':'var(--green)'],
+      ].map(([l,v,c])=>`<div style="background:rgba(0,0,0,0.3);border-radius:6px;padding:10px 14px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:${c}">${v}</div>
+        <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:3px">${l}</div>
+      </div>`).join('')}
+    </div>
+    <div style="font-size:11px;color:var(--text2);margin-bottom:8px">Top dominios</div>
+    ${(eq.top_dominios||[]).slice(0,5).map(([d,c])=>`
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:11px">
+        <span style="color:${vigilados.some(v=>d.includes(v))?'var(--danger2)':'var(--text2)'}">${d}</span>
+        <span style="color:var(--accent)">${c}</span>
+      </div>`).join('')}
+    <div style="font-size:11px;color:var(--text2);margin:14px 0 8px">Últimos paquetes</div>
+    <table style="width:100%;border-collapse:collapse;font-size:10px">
+      <thead><tr style="border-bottom:1px solid var(--border2)">
+        <th style="padding:4px 8px;text-align:left;color:var(--muted)">Hora</th>
+        <th style="padding:4px 8px;text-align:left;color:var(--muted)">Tipo</th>
+        <th style="padding:4px 8px;text-align:left;color:var(--muted)">Dominio</th>
+        <th style="padding:4px 8px;text-align:left;color:var(--muted)">Proto</th>
+      </tr></thead>
+      <tbody>${pkts.slice(0,30).map(p => {
+        const dom = (p.dominio||'').toLowerCase();
+        const es = vigilados.some(v=>dom.includes(v));
+        return `<tr style="border-bottom:1px solid rgba(15,32,53,0.5);${es?'background:rgba(239,68,68,0.06)':''}">
+          <td style="padding:4px 8px;color:var(--muted)">${p.ts||''}</td>
+          <td style="padding:4px 8px">${tagHtml(p.tipo,p.protocolo,es)}</td>
+          <td style="padding:4px 8px;color:${es?'var(--danger2)':'var(--text2)'};max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.dominio||''}">${(p.dominio||'—').slice(0,40)}</td>
+          <td style="padding:4px 8px;color:var(--green)">${p.protocolo||'—'}</td>
+        </tr>`;
+      }).join('')}</tbody>
+    </table>`;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+// ── Fetch ────────────────────────────────────────────────────────
+async function fetchEstado() {
+  try {
+    const [resE, resA] = await Promise.all([
+      fetch('/api/estado'), fetch('/api/alertas')
+    ]);
+    const dataE = await resE.json();
+    const dataA = await resA.json();
+
+    estado    = dataE.equipos || {};
+    feedPkts  = dataE.feed_global || [];
+    alertasData = dataA;
+
+    if (dataE.dominios_vigilados) renderVigilados(dataE.dominios_vigilados);
+
+    renderAula(estado);
+    renderAlertasSidebar(alertasData);
+    renderAlertasTab(alertasData);
+    renderFeed();
+    renderDominiosGlobal(estado);
+    document.getElementById('h-alertas').textContent = alertasData.length;
+  } catch(e) {}
+}
+
+async function clearFeed() {
+  await fetch('/api/clear', { method: 'POST' });
+  feedPkts = [];
+  renderFeed();
+}
+
+// ── Reloj y polling ──────────────────────────────────────────────
+setInterval(fetchEstado, 4000);
+setInterval(() => {
+  document.getElementById('clock').textContent = new Date().toLocaleTimeString('es-ES');
+}, 1000);
+document.getElementById('clock').textContent = new Date().toLocaleTimeString('es-ES');
+fetchEstado();
+</script>
+</body>
+</html>
