@@ -203,7 +203,7 @@ python simulador_aula.py --servidor 192.168.1.X   # servidor remoto
 
 **Alberto Narváez Ayuso**
 - GitHub: [@AlbertoNarvaez](https://github.com/AlbertoNarvaez)
-- LinkedIn: [linkedin.com/in/alberto-narváez](https://linkedin.com/in/alberto-narvaez)
+- LinkedIn: [linkedin.com/in/alberto-narváez](https://www.linkedin.com/in/alberto-narvaez-ayuso/)
 - Universidad Nebrija — Ingeniería Informática
 
 ---
